@@ -1,7 +1,7 @@
 {
   "name": "practice-ts",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project documents ongoing efforts to enrich my understanding of CS concepts while learning TypeScript.",
   "main": "index.js",
   "scripts": {
     "test": "jest",
