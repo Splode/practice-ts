@@ -1,7 +1,7 @@
 import printNumbers from './../lib/printNumbers'
 
-const unsorted = [7, 10, 2, 5, 3, 1, 6, 4, 9, 8]
-const sorted = bubbleSort(unsorted)
+const unsorted: number[] = [7, 10, 2, 5, 3, 1, 6, 4, 9, 8]
+const sorted: number[] = bubbleSort(unsorted)
 
 console.log('Unsorted array')
 printNumbers(unsorted)
@@ -10,10 +10,10 @@ console.log('Sorted array')
 printNumbers(sorted)
 
 /**
- * Return a sorted array from a given array of numbers
+ * Returns a sorted array from a given array of numbers.
  *
- * @param {number[]} unsorted the array of unsorted numbers
- * @returns {number[]} the array of sorted numbers
+ * @param {number[]} unsorted - The array of unsorted numbers.
+ * @returns {number[]} An array of sorted numbers.
  */
 function bubbleSort(unsorted: number[]): number[] {
   // create a copy of the array param so that the original array is not mutated

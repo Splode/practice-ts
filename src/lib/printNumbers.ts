@@ -1,8 +1,8 @@
 /**
- * Prints each element in an array of numbers
+ * Prints each element in an array of numbers.
  *
  * @export lib/printNumbers
- * @param {number[]} arr the array of numbers to be printed
+ * @param {number[]} arr - The array of numbers to be printed.
  */
 export default function printNumbers(arr: number[]): void {
   for (let i: number = 0; i < arr.length; i++) {

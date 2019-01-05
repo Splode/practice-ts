@@ -2,7 +2,9 @@
   "compilerOptions": {
     "target": "es2016",
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "outDir": "build"
   },
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
