@@ -1,4 +1,3 @@
-import printNumbers from './../lib/printNumbers'
 /**
  * Returns a sorted array from a given array of numbers.
  *
@@ -25,16 +24,4 @@ const bubbleSort = function(unsorted: number[]): number[] {
   return sorted
 }
 
-const unsorted: number[] = [7, 10, 2, 5, 3, 1, 6, 4, 9, 8]
-const sorted: number[] = bubbleSort(unsorted)
-
-console.log('Unsorted array')
-printNumbers(unsorted)
-
-console.log('Sorted array')
-printNumbers(sorted)
-
-export {
-  bubbleSort,
-  unsorted
-}
+export { bubbleSort }

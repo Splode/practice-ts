@@ -5,11 +5,11 @@
 ## Data Structures
 
 - [ ] Arrays
-- [ ] Singly Linked Lists
-  - [ ] Traversal
-  - [ ] Insertion
-  - [ ] Removal
-  - [ ] Length
+- [x] Singly Linked Lists
+  - [x] Traversal
+  - [x] Insertion
+  - [x] Removal
+  - [x] Length
 - [ ] Circular Linked Lists
 - [ ] Doubly Linked Lists
 - [ ] Stacks
