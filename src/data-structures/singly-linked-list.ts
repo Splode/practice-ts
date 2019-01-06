@@ -59,6 +59,29 @@ class LinkedList {
   }
 
   /**
+   * Returns a node at the zero-based index given from a linked list.
+   *
+   * @param {number} index - The zero-based index of the desired node.
+   * @returns {ListNode} The node at the given index.
+   * @memberof LinkedList
+   */
+  getNode(index: number): ListNode {
+    // guard against out-of-bounds index reference
+    if (index < 0 || index > this.length) {
+      return null
+    }
+    let count: number = 0
+    let current: ListNode = this.head
+    while (current) {
+      if (count === index) {
+        return current
+      }
+      current = current.next
+      count++
+    }
+  }
+
+  /**
    * Returns true if there are no nodes in the linked list.
    * Returns false otherwise.
    *

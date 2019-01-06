@@ -39,6 +39,15 @@ test('get the tail node from the linked list', () => {
   expect(linkedList.getTail().data).toBe(10)
 })
 
+test('get the node at nth index of a linked list', () => {
+  const linkedList = generateLinkedList()
+  expect(linkedList.getNode(3).data).toBe(4)
+  expect(linkedList.getNode(3)).toBeInstanceOf(ListNode)
+  expect(linkedList.getNode(6).data).toBe(7)
+  expect(linkedList.getNode(-1)).toBeFalsy()
+  expect(linkedList.getNode(11)).toBeFalsy()
+})
+
 test('remove the last node from a linked list', () => {
   const linkedList = generateLinkedList()
   expect(linkedList.pop()).toBeInstanceOf(ListNode)
