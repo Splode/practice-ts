@@ -5,8 +5,8 @@
  * @class ListNode
  */
 class ListNode {
-  data: number
-  next: ListNode
+  private _data: number
+  private _next: ListNode
 
   /**
    * Creates an instance of ListNode.
@@ -14,7 +14,37 @@ class ListNode {
    * @param {number} data - The number value to be stored.
    */
   constructor(data: number) {
-    this.data = data
+    this._data = data
+  }
+
+  /**
+   * Get the value of the data property from the node.
+   *
+   * @readonly
+   * @type {number}
+   * @memberof ListNode
+   */
+  public get data(): number {
+    return this._data
+  }
+
+  /**
+   * Get the next linked node from this node.
+   *
+   * @type {ListNode}
+   * @memberof ListNode
+   */
+  public get next(): ListNode {
+    return this._next
+  }
+
+  /**
+   * Set the next node property to a given node.
+   *
+   * @memberof ListNode
+   */
+  public set next(node: ListNode) {
+    this._next = node
   }
 }
 
@@ -24,38 +54,41 @@ class ListNode {
  * @class LinkedList
  */
 class LinkedList {
-  private length: number = 0
-  private head: ListNode = null
-  private tail: ListNode = null
+  private _length: number = 0
+  private _head: ListNode = null
+  private _tail: ListNode = null
 
   /**
    * Returns the number of nodes in the linked list.
    *
-   * @returns {number} The number of nodes in the linked list.
+   * @readonly
+   * @type {number} The number of nodes in the linked list.
    * @memberof LinkedList
    */
-  getLength(): number {
-    return this.length
+  public get length(): number {
+    return this._length
   }
 
   /**
    * Returns the head node of the linked list.
    *
-   * @returns {ListNode} The head node of the linked list.
+   * @readonly
+   * @type {ListNode} The head node of the linked list.
    * @memberof LinkedList
    */
-  getHead(): ListNode {
-    return this.head
+  public get head(): ListNode {
+    return this._head
   }
 
   /**
    * Returns the tail node of the linked list.
    *
-   * @returns {ListNode} The tail node of the linked list.
+   * @readonly
+   * @type {ListNode} The tail node of the linked list.
    * @memberof LinkedList
    */
-  getTail(): ListNode {
-    return this.tail
+  public get tail(): ListNode {
+    return this._tail
   }
 
   /**
@@ -65,7 +98,7 @@ class LinkedList {
    * @returns {ListNode} The node at the given index.
    * @memberof LinkedList
    */
-  getNode(index: number): ListNode {
+  public getNode(index: number): ListNode {
     // guard against out-of-bounds index reference
     if (index < 0 || index > this.length) {
       return null
@@ -88,7 +121,7 @@ class LinkedList {
    * @returns {boolean} True or false.
    * @memberof LinkedList
    */
-  isEmpty(): boolean {
+  public isEmpty(): boolean {
     return this.length === 0
   }
 
@@ -99,17 +132,17 @@ class LinkedList {
    * @returns {ListNode} The node added to the linked list.
    * @memberof LinkedList
    */
-  push(node: ListNode): ListNode {
+  public push(node: ListNode): ListNode {
     // set the node as both head and tail if list is empty
     if (this.isEmpty()) {
-      this.head = node
-      this.tail = node
+      this._head = node
+      this._tail = node
     } else {
-      this.tail.next = node
-      this.tail = node
+      this._tail.next = node
+      this._tail = node
     }
     // increment the length of the list
-    this.length++
+    this._length++
     return node
   }
 
@@ -119,18 +152,18 @@ class LinkedList {
    * @returns {ListNode} The removed node.
    * @memberof LinkedList
    */
-  pop(): ListNode {
+  public pop(): ListNode {
     const removed = this.tail
     let current = this.head
 
     while (current) {
       if (current.next === this.tail) {
         current.next = null
-        this.tail = current
+        this._tail = current
       }
       current = current.next
     }
-    this.length--
+    this._length--
     return removed
   }
 
@@ -141,15 +174,15 @@ class LinkedList {
    * @returns {ListNode} The newly added node.
    * @memberof LinkedList
    */
-  unshift(node: ListNode): ListNode {
+  public unshift(node: ListNode): ListNode {
     if (this.isEmpty()) {
-      this.head = node
-      this.tail = node
+      this._head = node
+      this._tail = node
     } else {
       node.next = this.head
-      this.head = node
+      this._head = node
     }
-    this.length++
+    this._length++
     return node
   }
 
@@ -159,13 +192,13 @@ class LinkedList {
    * @returns {(void | ListNode)} The removed head node.
    * @memberof LinkedList
    */
-  shift(): void | ListNode {
+  public shift(): void | ListNode {
     if (this.isEmpty()) {
       return null
     }
     const removed = this.head
-    this.head = this.head.next
-    this.length--
+    this._head = this.head.next
+    this._length--
     return removed
   }
 
@@ -177,14 +210,14 @@ class LinkedList {
    * @returns {ListNode} The newly added node.
    * @memberof LinkedList
    */
-  insert(newNode: ListNode, existingNode: ListNode): ListNode {
+  public insert(newNode: ListNode, existingNode: ListNode): ListNode {
     const rightNode = existingNode.next
     if (existingNode === this.tail) {
-      this.tail = newNode
+      this._tail = newNode
     }
     existingNode.next = newNode
     newNode.next = rightNode
-    this.length++
+    this._length++
     return newNode
   }
 
@@ -195,23 +228,23 @@ class LinkedList {
    * @returns {ListNode} The removed node.
    * @memberof LinkedList
    */
-  delete(node: ListNode): ListNode {
+  public delete(node: ListNode): ListNode {
     if (node === this.head) {
-      this.head = node.next
+      this._head = node.next
     } else {
       let current: ListNode = this.head
       while (current) {
         if (current.next === node) {
           current.next = node.next
           if (node === this.tail) {
-            this.tail = current
+            this._tail = current
           }
           break
         }
         current = current.next
       }
     }
-    this.length--
+    this._length--
     return node
   }
 
@@ -220,7 +253,7 @@ class LinkedList {
    *
    * @memberof LinkedList
    */
-  print(): void {
+  public print(): void {
     let current: ListNode = this.head
     let values: number[] = []
     while (current) {

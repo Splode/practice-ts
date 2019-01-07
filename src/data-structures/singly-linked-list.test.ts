@@ -14,7 +14,7 @@ function generateLinkedList(): LinkedList {
 
 test('creates a new node', () => {
   const node = new ListNode(1)
-  expect(node).toEqual({ data: 1 })
+  expect(node).toEqual({ _data: 1 })
   expect(node).toBeInstanceOf(ListNode)
 })
 
@@ -26,17 +26,17 @@ test('creates a new singly-linked list', () => {
 
 test('push new node to the end of a linked list', () => {
   const linkedList = generateLinkedList()
-  expect(linkedList.getLength()).toBe(10)
+  expect(linkedList.length).toBe(10)
 })
 
 test('get the head node from the linked list', () => {
   const linkedList = generateLinkedList()
-  expect(linkedList.getHead().data).toBe(1)
+  expect(linkedList.head.data).toBe(1)
 })
 
 test('get the tail node from the linked list', () => {
   const linkedList = generateLinkedList()
-  expect(linkedList.getTail().data).toBe(10)
+  expect(linkedList.tail.data).toBe(10)
 })
 
 test('get the node at nth index of a linked list', () => {
@@ -51,16 +51,16 @@ test('get the node at nth index of a linked list', () => {
 test('remove the last node from a linked list', () => {
   const linkedList = generateLinkedList()
   expect(linkedList.pop()).toBeInstanceOf(ListNode)
-  expect(linkedList.getLength()).toBe(9)
-  expect(linkedList.getTail().data).toBe(9)
+  expect(linkedList.length).toBe(9)
+  expect(linkedList.tail.data).toBe(9)
 })
 
 test('adds a node to the beginning of a linked list', () => {
   const linkedList = new LinkedList()
   linkedList.unshift(new ListNode(1))
   linkedList.unshift(new ListNode(2))
-  expect(linkedList.getHead().data).toBe(2)
-  expect(linkedList.getLength()).toBe(2)
+  expect(linkedList.head.data).toBe(2)
+  expect(linkedList.length).toBe(2)
 })
 
 test('guards against shifting node from an empty list', () => {
@@ -71,35 +71,35 @@ test('guards against shifting node from an empty list', () => {
 test('removes the head from a linked list', () => {
   const linkedList = generateLinkedList()
   expect(linkedList.shift()).toBeInstanceOf(ListNode)
-  expect(linkedList.getLength()).toBe(9)
-  expect(linkedList.getHead().data).toBe(2)
+  expect(linkedList.length).toBe(9)
+  expect(linkedList.head.data).toBe(2)
 })
 
 test('insert a node after a given node', () => {
   const linkedList = generateLinkedList()
   // insert new node after head
-  linkedList.insert(new ListNode(11), linkedList.getHead())
-  expect(linkedList.getLength()).toBe(11)
-  expect(linkedList.getHead().next.data).toBe(11)
+  linkedList.insert(new ListNode(11), linkedList.head)
+  expect(linkedList.length).toBe(11)
+  expect(linkedList.head.next.data).toBe(11)
   // insert new node after tail
-  linkedList.insert(new ListNode(12), linkedList.getTail())
-  expect(linkedList.getLength()).toBe(12)
-  expect(linkedList.getTail().data).toBe(12)
+  linkedList.insert(new ListNode(12), linkedList.tail)
+  expect(linkedList.length).toBe(12)
+  expect(linkedList.tail.data).toBe(12)
 })
 
 test('remove a given node from the linked list', () => {
   const linkedList = generateLinkedList()
   const node = new ListNode(11)
-  linkedList.insert(node, linkedList.getHead())
+  linkedList.insert(node, linkedList.head)
   // remove node
   expect(linkedList.delete(node)).toBeInstanceOf(ListNode)
-  expect(linkedList.getLength()).toBe(10)
+  expect(linkedList.length).toBe(10)
   // remove head
-  linkedList.delete(linkedList.getHead())
-  expect(linkedList.getHead().data).toBe(2)
-  expect(linkedList.getLength()).toBe(9)
+  linkedList.delete(linkedList.head)
+  expect(linkedList.head.data).toBe(2)
+  expect(linkedList.length).toBe(9)
   // remove tail
-  linkedList.delete(linkedList.getTail())
-  expect(linkedList.getTail().data).toBe(9)
-  expect(linkedList.getLength()).toBe(8)
+  linkedList.delete(linkedList.tail)
+  expect(linkedList.tail.data).toBe(9)
+  expect(linkedList.length).toBe(8)
 })

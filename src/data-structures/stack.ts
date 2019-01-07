@@ -61,7 +61,7 @@ class Stack {
    *
    * @memberof Stack
    */
-  print(): void {
+  public print(): void {
     for (let i = 0; i < this.length; i++) {
       console.log(`[${i}]:  ${this._items[i]}`)
     }
