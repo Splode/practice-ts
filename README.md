@@ -5,11 +5,14 @@
 ## Data Structures
 
 - [ ] Arrays
+  - [ ] Reversal
 - [x] Singly Linked Lists
   - [x] Traversal
-  - [x] Insertion
-  - [x] Removal
+  - [x] Get
+  - [x] Insertion (push, unshift, @node)
+  - [x] Removal (pop, shift, delete)
   - [x] Length
+  - [x] isEmpty
 - [ ] Circular Linked Lists
 - [ ] Doubly Linked Lists
 - [x] Stacks
@@ -19,8 +22,15 @@
   - [x] Length
   - [x] isEmpty
 - [ ] Queues
+  - [ ] Enqueue
+  - [ ] Dequeue
+  - [ ] Peek
+  - [ ] Length
+  - [ ] isEmpty
+- [ ] Priority Queues
 - [ ] Graphs
 - [ ] Trees
+- [ ] Binary Trees
 
 ## Algorithms
 
@@ -28,6 +38,7 @@
 
 - [x] Bubble sort
 - [ ] Merge sort
+- [ ] Insertion sort
 - [ ] Quick sort
 
 ### Searching
