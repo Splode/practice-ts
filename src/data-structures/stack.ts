@@ -39,7 +39,8 @@ class Stack {
   /**
    * Returns the length of the stack.
    *
-   * @returns {number} The length of the stack.
+   * @readonly
+   * @type {number} The length of the stack.
    * @memberof Stack
    */
   public get length(): number {
