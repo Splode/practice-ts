@@ -21,12 +21,12 @@
   - [x] Peek
   - [x] Length
   - [x] isEmpty
-- [ ] Queues
-  - [ ] Enqueue
-  - [ ] Dequeue
-  - [ ] Peek
-  - [ ] Length
-  - [ ] isEmpty
+- [x] Queues
+  - [x] Enqueue
+  - [x] Dequeue
+  - [x] Peek
+  - [x] Length
+  - [x] isEmpty
 - [ ] Priority Queues
 - [ ] Graphs
 - [ ] Trees
