@@ -15,9 +15,7 @@ function reverse(arr: any[]): any[] {
     start++
     end--
   }
-  return arr;
+  return arr
 }
 
-export {
-  reverse
-}
+export { reverse }
