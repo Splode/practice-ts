@@ -5,7 +5,7 @@
 ## Data Structures
 
 - [ ] Arrays
-  - [ ] Reversal
+  - [x] Reversal
 - [x] Singly Linked Lists
   - [x] Traversal
   - [x] Get
