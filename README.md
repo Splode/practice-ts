@@ -37,6 +37,7 @@
 ### Sorting
 
 - [x] Bubble sort
+- [ ] Selection sort
 - [ ] Merge sort
 - [ ] Insertion sort
 - [ ] Quick sort
@@ -45,3 +46,5 @@
 
 - [ ] Linear search
 - [ ] Binary search
+- [ ] Breadth-first search
+- [ ] Depth-first search
