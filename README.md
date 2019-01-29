@@ -28,6 +28,11 @@
   - [x] Length
   - [x] isEmpty
 - [ ] Priority Queues
+  - [x] Enqueue
+  - [x] Dequeue
+  - [ ] Peek
+  - [x] Length
+  - [x] isEmpty
 - [ ] Graphs
 - [ ] Trees
 - [ ] Binary Trees
