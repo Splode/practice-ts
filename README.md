@@ -27,10 +27,10 @@
   - [x] Peek
   - [x] Length
   - [x] isEmpty
-- [ ] Priority Queues
+- [x] Priority Queues
   - [x] Enqueue
   - [x] Dequeue
-  - [ ] Peek
+  - [x] Peek
   - [x] Length
   - [x] isEmpty
 - [ ] Graphs

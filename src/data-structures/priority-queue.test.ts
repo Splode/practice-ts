@@ -57,11 +57,16 @@ test('dequeue items from the queue, beginning with high priority', () => {
 
 test('expect dequeueing empty queue to throw error', () => {
   const priorityQueue = new PriorityQueue()
-  function dequeueEmpty() {
-    priorityQueue.dequeue()
-  }
   expect(priorityQueue.isEmpty()).toBeTruthy()
-  expect(dequeueEmpty).toThrowError(new Error(
-    'PriorityQueue method dequeue cannot be called on an empty queue; no items to dequeue.'
-  ))
+  expect(priorityQueue.dequeue()).toBeNull()
+})
+
+test('peek retrieves item first from high priority queue, then low priority', () => {
+  const priorityQueue = new PriorityQueue()
+  expect(priorityQueue.peek()).toBeNull()
+  priorityQueue.enqueue(1)
+  expect(priorityQueue.peek()).toBe(1)
+  priorityQueue.enqueue(2, true)
+  priorityQueue.enqueue(3)
+  expect(priorityQueue.peek()).toBe(2)
 })

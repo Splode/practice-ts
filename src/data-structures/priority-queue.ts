@@ -26,8 +26,9 @@ class PriorityQueue {
       : this._lowPriorityQueue.enqueue(item)
     return item
   }
+
   /**
-   * Removes the first item in the queue, beginning 
+   * Removes the first item in the queue, beginning
    * with high priority and returns it.
    *
    * @returns {number} The removed item.
@@ -36,15 +37,29 @@ class PriorityQueue {
   public dequeue(): number {
     // guard against attempting to dequeue from an empty queue
     if (this.isEmpty()) {
-      throw new Error(
-        'PriorityQueue method dequeue cannot be called on an empty queue; no items to dequeue.'
-      )
+      return null
     } else if (!this._highPriorityQueue.isEmpty()) {
       return this._highPriorityQueue.dequeue()
     }
     return this._lowPriorityQueue.dequeue()
   }
-  // peek
+
+  /**
+   * Return the first item in the queue, starting first
+   * with items in the high-priority queue.
+   *
+   * @returns {number} - The first item in the queue.
+   * @memberof PriorityQueue
+   */
+  public peek(): number {
+    if (this.isEmpty()) {
+      return null
+    } else if (!this._highPriorityQueue.isEmpty()) {
+      return this._highPriorityQueue.peek()
+    }
+    return this._lowPriorityQueue.peek()
+  }
+
   /**
    * Returns the total number of items in the priority queue.
    *
@@ -55,6 +70,7 @@ class PriorityQueue {
   public get length(): number {
     return this._highPriorityQueue.length + this._lowPriorityQueue.length
   }
+
   /**
    * Returns true if both the high and low priority queues are empty.
    *
@@ -64,7 +80,17 @@ class PriorityQueue {
   public isEmpty(): boolean {
     return this._highPriorityQueue.isEmpty() && this._lowPriorityQueue.isEmpty()
   }
-  // print
+
+  /**
+   * Print the queue to the console in ascending order, beginning with
+   * the high-priority queue.
+   *
+   * @memberof PriorityQueue
+   */
+  public print(): void {
+    this._highPriorityQueue.print()
+    this._lowPriorityQueue.print()
+  }
 }
 
 export { PriorityQueue }
