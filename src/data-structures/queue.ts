@@ -25,7 +25,9 @@ class Queue {
    * @memberof Queue
    */
   public dequeue(): number {
-    // TODO: guard against dequeueing empty queue
+    if (this.isEmpty()) {
+      return null
+    }
     return this._items.pop()
   }
 

@@ -20,6 +20,10 @@ test('determine if queue is empty', () => {
   expect(new Queue().isEmpty()).toBeTruthy()
 })
 
+test('attempting to remove an item from queue should return null', () => {
+  expect(new Queue().dequeue()).toBeNull()
+})
+
 test('test enqueueing items to a queue', () => {
   const queue = generateQueue()
   expect(queue.length).toBe(10)
