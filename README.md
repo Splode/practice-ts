@@ -51,7 +51,7 @@
 - [x] Bubble sort
 - [ ] Selection sort
 - [ ] Merge sort
-- [ ] Insertion sort
+- [x] Insertion sort
 - [ ] Quick sort
 
 ### Searching
