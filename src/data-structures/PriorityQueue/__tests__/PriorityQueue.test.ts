@@ -58,4 +58,9 @@ describe('The PriorityQueue class', () => {
     priorityQueue.enqueue(3)
     expect(priorityQueue.peek()).toBe(2)
   })
+
+  test('printing the items in the queue to a string', () => {
+    const priorityQueue: PriorityQueue = generatePriorityQueue()
+    expect(typeof priorityQueue.print()).toBe('string')
+  })
 })

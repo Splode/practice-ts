@@ -103,8 +103,9 @@ export default class PriorityQueue {
    *
    * @memberof PriorityQueue
    */
-  public print(): void {
-    this._highPriorityQueue.print()
-    this._lowPriorityQueue.print()
+  public print(): string {
+    // this._highPriorityQueue.print()
+    // this._lowPriorityQueue.print()
+    return `${this._highPriorityQueue.print()}\n${this._lowPriorityQueue.print()}`
   }
 }
