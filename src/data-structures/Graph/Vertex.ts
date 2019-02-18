@@ -119,7 +119,7 @@ export default class Vertex {
    * @memberof Vertex
    */
   public removeNeighbor(key: string): Vertex {
-    const index = this._neighbors.findIndex(vertex => vertex.key === key)
+    const index: number = this._neighbors.findIndex(vertex => vertex.key === key)
     if (index < 0) {
       throw `Cannot find relationship between vertices with key ${this._key} and ${key}.`
     }

@@ -5,7 +5,7 @@ import Vertex from '../Vertex'
 import { generateVertexLs, generateVertex } from '../utils/Vertex-mock'
 
 describe('The Graph class', () => {
-  let graph
+  let graph: Graph
 
   beforeEach(() => {
     graph = new Graph()
@@ -17,48 +17,48 @@ describe('The Graph class', () => {
   })
 
   test('create a new, directed Graph', () => {
-    const graph = new Graph(true)
+    const graph: Graph = new Graph(true)
     expect(graph).toBeInstanceOf(Graph)
     expect(graph.isDirected).toBeTruthy()
   })
 
   test('add a vertex to a graph and get its verticesCount', () => {
-    const vertices = generateVertexLs(10)
+    const vertices: Vertex[] = generateVertexLs(10)
     vertices.map(vertex => graph.addVertex(vertex))
     expect(graph.verticesCount()).toBe(10)
   })
 
   test('get the vertices from a graph', () => {
-    const vertices = generateVertexLs(10)
+    const vertices: Vertex[] = generateVertexLs(10)
     vertices.map(vertex => graph.addVertex(vertex))
     expect(graph.vertices[3]).toBeInstanceOf(Vertex)
   })
 
   test('avoid adding duplicate vertices', () => {
-    const vertex = generateVertex()
+    const vertex: Vertex = generateVertex()
     graph.addVertex(vertex)
     expect(graph.addVertex(vertex)).toBeInstanceOf(Graph)
     expect(graph.verticesCount()).toBe(1)
   })
 
   test('get a vertex from a graph by key', () => {
-    const vertices = generateVertexLs(10)
-    const key = faker.random.uuid()
+    const vertices: Vertex[] = generateVertexLs(10)
+    const key: string = faker.random.uuid()
 
     expect(graph.getVertex(faker.random.word())).toBeNull()
 
     vertices.map(vertex => graph.addVertex(vertex))
     graph.addVertex(new Vertex(key, faker.helpers.userCard()))
 
-    const vertexTwo = graph.getVertex(key)
+    const vertexTwo: Vertex = graph.getVertex(key)
     expect(vertexTwo).toBeInstanceOf(Vertex)
     expect(vertexTwo.key).toBe(key)
 
-    expect(graph.getVertex(13)).toBeNull()
+    expect(graph.getVertex(faker.random.word())).toBeNull()
   })
 
   test('remove a vertex from a graph by key', () => {
-    const key = faker.random.uuid()
+    const key: string = faker.random.uuid()
     expect(graph.removeVertex(faker.random.word())).toBeNull()
 
     graph.addVertex(new Vertex(key, faker.helpers.userCard()))
@@ -68,9 +68,9 @@ describe('The Graph class', () => {
   })
 
   test('remove the vertex from neighboring vertices on removal', () => {
-    const vertex1 = generateVertex()
-    const vertex2 = generateVertex()
-    const vertex3 = generateVertex()
+    const vertex1: Vertex = generateVertex()
+    const vertex2: Vertex = generateVertex()
+    const vertex3: Vertex = generateVertex()
 
     graph.addEdge(vertex1, vertex2)
     graph.addEdge(vertex1, vertex3)
@@ -85,9 +85,9 @@ describe('The Graph class', () => {
   })
 
   test('add an edge to a graph', () => {
-    const vertex1 = generateVertex()
-    const vertex2 = generateVertex()
-    const vertex3 = generateVertex()
+    const vertex1: Vertex = generateVertex()
+    const vertex2: Vertex = generateVertex()
+    const vertex3: Vertex = generateVertex()
 
     expect(graph.addEdge(vertex1, vertex2)).toBeInstanceOf(Graph)
     expect(graph.verticesCount()).toBe(2)
@@ -103,8 +103,8 @@ describe('The Graph class', () => {
   })
 
   test('do not add duplicate edges to a graph', () => {
-    const vertex1 = generateVertex()
-    const vertex2 = generateVertex()
+    const vertex1: Vertex = generateVertex()
+    const vertex2: Vertex = generateVertex()
 
     graph.addEdge(vertex1, vertex2)
     graph.addEdge(vertex1, vertex2)
@@ -118,17 +118,17 @@ describe('The Graph class', () => {
   })
 
   test('get an edge from a pair of vertex keys', () => {
-    const vertex1 = generateVertex()
-    const vertex2 = generateVertex()
+    const vertex1: Vertex = generateVertex()
+    const vertex2: Vertex = generateVertex()
     graph.addEdge(vertex1, vertex2)
     expect(graph.getEdge(vertex1.key, vertex2.key)).toBeInstanceOf(Edge)
     expect(graph.getEdge(faker.random.word(), faker.random.word())).toBeNull()
   })
 
   test('remove an edge from a graph by a vertex key pair', () => {
-    const vertices = generateVertexLs(10)
-    const vertex1 = vertices[0]
-    const vertex2 = vertices[1]
+    const vertices: Vertex[] = generateVertexLs(10)
+    const vertex1: Vertex = vertices[0]
+    const vertex2: Vertex = vertices[1]
 
     vertices.map(vertex => graph.addVertex(vertex))
 

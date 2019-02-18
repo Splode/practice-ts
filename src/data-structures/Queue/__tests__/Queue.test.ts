@@ -15,13 +15,13 @@ describe('The Queue class', () => {
   })
 
   test('test enqueueing items to a queue', () => {
-    const queue = generateQueue()
+    const queue: Queue = generateQueue()
     expect(queue.length).toBe(10)
     expect(queue.isEmpty()).toBeFalsy()
   })
 
   test('dequeue items from the queue', () => {
-    const queue = generateQueue()
+    const queue: Queue = generateQueue()
     expect(queue.dequeue()).toBe(1)
     expect(queue.length).toBe(9)
     expect(queue.dequeue()).toBe(2)
@@ -29,7 +29,7 @@ describe('The Queue class', () => {
   })
 
   test('get the first item in the queue', () => {
-    const queue = generateQueue()
+    const queue: Queue = generateQueue()
     expect(queue.peek()).toBe(1)
     queue.dequeue()
     expect(queue.peek()).toBe(2)

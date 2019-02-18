@@ -10,7 +10,7 @@ export default function reverse(arr: any[]): any[] {
   let end: number = arr.length - 1
 
   while (start < end) {
-    let tmp = arr[end]
+    let tmp: number = arr[end]
     arr[end] = arr[start]
     arr[start] = tmp
     start++

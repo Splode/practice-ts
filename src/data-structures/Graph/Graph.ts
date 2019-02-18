@@ -103,11 +103,11 @@ export default class Graph {
    * @memberof Graph
    */
   public removeVertex(key: string): Vertex {
-    const index = this._vertices.findIndex(vertex => vertex.key === key)
+    const index: number = this._vertices.findIndex(vertex => vertex.key === key)
     if (this._vertices.length <= 0 || index < 0) {
       return null
     }
-    const currentVertex = this._vertices[index]
+    const currentVertex: Vertex = this._vertices[index]
 
     // TODO: check for existence of vertex in edge
 

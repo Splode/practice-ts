@@ -4,28 +4,28 @@ import generateLinkedList from '../utils/SinglyLinkedList-mock'
 
 describe('The SinglyLinkedList class', () => {
   test('creates a new singly-linked list', () => {
-    const linkedList = new SinglyLinkedList()
+    const linkedList: SinglyLinkedList = new SinglyLinkedList()
     expect(linkedList).toBeInstanceOf(SinglyLinkedList)
     expect(linkedList.isEmpty()).toBe(true)
   })
 
   test('push new node to the end of a linked list', () => {
-    const linkedList = generateLinkedList()
+    const linkedList: SinglyLinkedList = generateLinkedList()
     expect(linkedList.length).toBe(10)
   })
 
   test('get the head node from the linked list', () => {
-    const linkedList = generateLinkedList()
+    const linkedList: SinglyLinkedList = generateLinkedList()
     expect(linkedList.head.data).toBe(1)
   })
 
   test('get the tail node from the linked list', () => {
-    const linkedList = generateLinkedList()
+    const linkedList: SinglyLinkedList = generateLinkedList()
     expect(linkedList.tail.data).toBe(10)
   })
 
   test('get the node at nth index of a linked list', () => {
-    const linkedList = generateLinkedList()
+    const linkedList: SinglyLinkedList = generateLinkedList()
     expect(linkedList.getNode(3).data).toBe(4)
     expect(linkedList.getNode(3)).toBeInstanceOf(ListNode)
     expect(linkedList.getNode(6).data).toBe(7)
@@ -34,14 +34,14 @@ describe('The SinglyLinkedList class', () => {
   })
 
   test('remove the last node from a linked list', () => {
-    const linkedList = generateLinkedList()
+    const linkedList: SinglyLinkedList = generateLinkedList()
     expect(linkedList.pop()).toBeInstanceOf(ListNode)
     expect(linkedList.length).toBe(9)
     expect(linkedList.tail.data).toBe(9)
   })
 
   test('adds a node to the beginning of a linked list', () => {
-    const linkedList = new SinglyLinkedList()
+    const linkedList: SinglyLinkedList = new SinglyLinkedList()
     linkedList.unshift(new ListNode(1))
     linkedList.unshift(new ListNode(2))
     expect(linkedList.head.data).toBe(2)
@@ -49,19 +49,19 @@ describe('The SinglyLinkedList class', () => {
   })
 
   test('guards against shifting node from an empty list', () => {
-    const linkedList = new SinglyLinkedList()
+    const linkedList: SinglyLinkedList = new SinglyLinkedList()
     expect(linkedList.shift()).toBe(null)
   })
 
   test('removes the head from a linked list', () => {
-    const linkedList = generateLinkedList()
+    const linkedList: SinglyLinkedList = generateLinkedList()
     expect(linkedList.shift()).toBeInstanceOf(ListNode)
     expect(linkedList.length).toBe(9)
     expect(linkedList.head.data).toBe(2)
   })
 
   test('insert a node after a given node', () => {
-    const linkedList = generateLinkedList()
+    const linkedList: SinglyLinkedList = generateLinkedList()
     // insert new node after head
     linkedList.insert(new ListNode(11), linkedList.head)
     expect(linkedList.length).toBe(11)
@@ -73,8 +73,8 @@ describe('The SinglyLinkedList class', () => {
   })
 
   test('remove a given node from the linked list', () => {
-    const linkedList = generateLinkedList()
-    const node = new ListNode(11)
+    const linkedList: SinglyLinkedList = generateLinkedList()
+    const node: ListNode = new ListNode(11)
     linkedList.insert(node, linkedList.head)
     // remove node
     expect(linkedList.delete(node)).toBeInstanceOf(ListNode)

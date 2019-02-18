@@ -1,6 +1,6 @@
 import Graph from '../Graph'
+import Vertex from '../Vertex'
 import { generateVertexLs } from './Vertex-mock'
-import * as faker from 'faker'
 
 /**
  * Generates a graph pre-populated with random vertices for testing.
@@ -9,14 +9,14 @@ import * as faker from 'faker'
  * @returns {Graph} A pre-populate graph.
  */
 export default function generateGraph(): Graph {
-  const graph = new Graph()
-  const vertices = generateVertexLs(20)
+  const graph: Graph = new Graph()
+  const vertices: Vertex[] = generateVertexLs(20)
 
   vertices.map(vertex => graph.addVertex(vertex))
 
   for (let i = 0; i < (graph.verticesCount() * 2); i++) {
-    const random1 = getRandomNumber(graph.verticesCount())
-    const random2 = getRandomNumber(graph.verticesCount())
+    const random1: number = getRandomNumber(graph.verticesCount())
+    const random2: number = getRandomNumber(graph.verticesCount())
     graph.addEdge(graph.vertices[random1], graph.vertices[random2])
   }
 

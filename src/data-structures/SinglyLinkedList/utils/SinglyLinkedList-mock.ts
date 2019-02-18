@@ -9,7 +9,7 @@ import ListNode from '../ListNode'
  */
 export default function generateLinkedList(): SinglyLinkedList {
   const values: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  const linkedList = new SinglyLinkedList()
+  const linkedList: SinglyLinkedList = new SinglyLinkedList()
   values.map(el => linkedList.push(new ListNode(el)))
   return linkedList
 }

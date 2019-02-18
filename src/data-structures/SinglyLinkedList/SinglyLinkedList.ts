@@ -106,8 +106,8 @@ export default class SinglyLinkedList {
    * @memberof LinkedList
    */
   public pop(): ListNode {
-    const removed = this.tail
-    let current = this.head
+    const removed: ListNode = this.tail
+    let current: ListNode = this.head
 
     while (current) {
       if (current.next === this.tail) {
@@ -149,7 +149,7 @@ export default class SinglyLinkedList {
     if (this.isEmpty()) {
       return null
     }
-    const removed = this.head
+    const removed: ListNode = this.head
     this._head = this.head.next
     this._length--
     return removed
@@ -164,7 +164,7 @@ export default class SinglyLinkedList {
    * @memberof LinkedList
    */
   public insert(newNode: ListNode, existingNode: ListNode): ListNode {
-    const rightNode = existingNode.next
+    const rightNode: ListNode = existingNode.next
     if (existingNode === this.tail) {
       this._tail = newNode
     }

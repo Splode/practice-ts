@@ -17,7 +17,7 @@ const generateVertex = function(): Vertex {
  * @returns {Vertex[]} Array of vertices.
  */
 const generateVertexLs = function(num: number): Vertex[] {
-  let vertices = []
+  let vertices: Vertex[] = []
   for (let i = 0; i < num; i++) {
     vertices.push(generateVertex())
   }

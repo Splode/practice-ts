@@ -7,7 +7,7 @@ describe('The Stack class', () => {
   })
 
   test('push values to the end of a stack', () => {
-    const stack = new Stack()
+    const stack: Stack = new Stack()
     stack.push(1)
     stack.push(2)
     stack.push(3)
@@ -15,14 +15,14 @@ describe('The Stack class', () => {
   })
 
   test('remove and return the top-most item of a stack', () => {
-    const stack = generateStack()
+    const stack: Stack = generateStack()
     expect(stack.pop()).toBe(10)
     expect(stack.length).toBe(9)
     expect(stack.peek()).toBe(9)
   })
 
   test('retrieve the top-most item on the stack', () => {
-    const stack = generateStack()
+    const stack: Stack = generateStack()
     expect(stack.peek()).toBe(10)
   })
 
