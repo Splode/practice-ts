@@ -1,28 +1,6 @@
 import * as faker from 'faker'
-import Vertex from './Vertex'
-
-/**
- * Generate a single vertex with random data for testing purposes.
- *
- * @returns {Vertex} A randomly generated vertex.
- */
-function generateVertex(): Vertex {
-  return new Vertex(faker.random.number(), faker.random.objectElement())
-}
-
-/**
- * Generate an array of randomly generated vertices.
- *
- * @param {number} num - The number of vertices to generate.
- * @returns {Vertex[]} Array of vertices.
- */
-function generateVertexLs(num: number): Vertex[] {
-  let vertices = []
-  for (let i = 0; i < num; i++) {
-    vertices.push(generateVertex())
-  }
-  return vertices
-}
+import Vertex from '../Vertex'
+import { generateVertex, generateVertexLs } from '../utils/Vertex-mock'
 
 describe('The Vertex class', () => {
   test('create a new Vertex', () => {

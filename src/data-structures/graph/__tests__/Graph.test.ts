@@ -1,5 +1,5 @@
-import Graph from './graph'
-import Vertex from './Vertex'
+import Graph from '../Graph'
+import Vertex from '../Vertex'
 
 test('create a new, undirected Graph', () => {
   expect(new Graph()).toBeInstanceOf(Graph)
