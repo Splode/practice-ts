@@ -2,33 +2,27 @@ import PriorityQueue from '../PriorityQueue'
 import generatePriorityQueue from '../utils/PriorityQueue-mock'
 
 describe('The PriorityQueue class', () => {
-  test('create a new instance of PriorityQueue', () => {
+  test('instantiating a new PriorityQueue', () => {
     const priorityQueue: PriorityQueue = new PriorityQueue()
     expect(priorityQueue).toBeInstanceOf(PriorityQueue)
     expect(priorityQueue.isEmpty()).toBeTruthy()
   })
 
-  test('enqueue items to low priority queue', () => {
+  test('enqueuing items to the low priority queue', () => {
     const priorityQueue: PriorityQueue = new PriorityQueue()
     expect(priorityQueue.enqueue(1)).toBe(1)
     expect(priorityQueue.enqueue(2)).toBe(2)
     expect(priorityQueue.length).toEqual(2)
   })
 
-  test('enqueue items to high priority queue', () => {
+  test('enqueuing items to the high priority queue', () => {
     const priorityQueue: PriorityQueue = new PriorityQueue()
     expect(priorityQueue.enqueue(1, true)).toBe(1)
     expect(priorityQueue.enqueue(2, true)).toBe(2)
     expect(priorityQueue.length).toEqual(2)
   })
 
-  test('generate a priority queue with low and high items', () => {
-    const priorityQueue: PriorityQueue = generatePriorityQueue()
-    expect(priorityQueue.isEmpty()).toBeFalsy()
-    expect(priorityQueue.length).toEqual(10)
-  })
-
-  test('dequeue items from the queue, beginning with high priority', () => {
+  test('dequeuing items from the queue, beginning with high priority', () => {
     const priorityQueue: PriorityQueue = generatePriorityQueue()
     expect(priorityQueue.dequeue()).toBe(6)
     expect(priorityQueue.dequeue()).toBe(7)
@@ -43,13 +37,13 @@ describe('The PriorityQueue class', () => {
     expect(priorityQueue.dequeue()).toBe(5)
   })
 
-  test('expect dequeueing empty queue to throw error', () => {
+  test('throwing an error when dequeueing from and empty queue', () => {
     const priorityQueue: PriorityQueue = new PriorityQueue()
     expect(priorityQueue.isEmpty()).toBeTruthy()
     expect(priorityQueue.dequeue()).toBeNull()
   })
 
-  test('peek retrieves item first from high priority queue, then low priority', () => {
+  test('peeking first from high priority queue, then low priority', () => {
     const priorityQueue: PriorityQueue = new PriorityQueue()
     expect(priorityQueue.peek()).toBeNull()
     priorityQueue.enqueue(1)

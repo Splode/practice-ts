@@ -11,37 +11,37 @@ describe('The Graph class', () => {
     graph = new Graph()
   })
 
-  test('create a new, undirected Graph', () => {
+  test('instantiating a new, undirected Graph', () => {
     expect(graph).toBeInstanceOf(Graph)
     expect(graph.isDirected).toBeFalsy()
   })
 
-  test('create a new, directed Graph', () => {
+  test('instantiating a new, directed Graph', () => {
     const graph: Graph = new Graph(true)
     expect(graph).toBeInstanceOf(Graph)
     expect(graph.isDirected).toBeTruthy()
   })
 
-  test('add a vertex to a graph and get its verticesCount', () => {
+  test('adding a vertex to a graph and verifying its verticesCount', () => {
     const vertices: Vertex[] = generateVertexLs(10)
     vertices.map(vertex => graph.addVertex(vertex))
     expect(graph.verticesCount()).toBe(10)
   })
 
-  test('get the vertices from a graph', () => {
+  test('getting the vertices from a graph', () => {
     const vertices: Vertex[] = generateVertexLs(10)
     vertices.map(vertex => graph.addVertex(vertex))
     expect(graph.vertices[3]).toBeInstanceOf(Vertex)
   })
 
-  test('avoid adding duplicate vertices', () => {
+  test('preventing duplicate vertices from being added', () => {
     const vertex: Vertex = generateVertex()
     graph.addVertex(vertex)
     expect(graph.addVertex(vertex)).toBeInstanceOf(Graph)
     expect(graph.verticesCount()).toBe(1)
   })
 
-  test('get a vertex from a graph by key', () => {
+  test('getting a vertex from by key', () => {
     const vertices: Vertex[] = generateVertexLs(10)
     const key: string = faker.random.uuid()
 
@@ -57,7 +57,7 @@ describe('The Graph class', () => {
     expect(graph.getVertex(faker.random.word())).toBeNull()
   })
 
-  test('remove a vertex from a graph by key', () => {
+  test('removing a vertex by key', () => {
     const key: string = faker.random.uuid()
     expect(graph.removeVertex(faker.random.word())).toBeNull()
 
@@ -67,7 +67,7 @@ describe('The Graph class', () => {
     expect(graph.verticesCount()).toBe(0)
   })
 
-  test('remove the vertex from neighboring vertices on removal', () => {
+  test('removing the vertex from neighboring vertices on removal', () => {
     const vertex1: Vertex = generateVertex()
     const vertex2: Vertex = generateVertex()
     const vertex3: Vertex = generateVertex()
@@ -84,7 +84,7 @@ describe('The Graph class', () => {
     expect(vertex1.neighborsCount()).toBe(1)
   })
 
-  test('add an edge to a graph', () => {
+  test('adding an edge', () => {
     const vertex1: Vertex = generateVertex()
     const vertex2: Vertex = generateVertex()
     const vertex3: Vertex = generateVertex()
@@ -102,7 +102,7 @@ describe('The Graph class', () => {
     expect(vertex3.neighborsCount()).toBe(1)
   })
 
-  test('do not add duplicate edges to a graph', () => {
+  test('preventing duplicate edges from being added', () => {
     const vertex1: Vertex = generateVertex()
     const vertex2: Vertex = generateVertex()
 
@@ -112,12 +112,12 @@ describe('The Graph class', () => {
     expect(graph.edgesCount()).toBe(1)
   })
 
-  test('get the edges from a graph', () => {
+  test('getting all edges', () => {
     graph.addEdge(generateVertex(), generateVertex())
     expect(graph.edges[0]).toBeInstanceOf(Edge)
   })
 
-  test('get an edge from a pair of vertex keys', () => {
+  test('getting an edge from a pair of vertex keys', () => {
     const vertex1: Vertex = generateVertex()
     const vertex2: Vertex = generateVertex()
     graph.addEdge(vertex1, vertex2)
@@ -125,7 +125,7 @@ describe('The Graph class', () => {
     expect(graph.getEdge(faker.random.word(), faker.random.word())).toBeNull()
   })
 
-  test('remove an edge from a graph by a vertex key pair', () => {
+  test('removing an edge by a vertex key pair', () => {
     const vertices: Vertex[] = generateVertexLs(10)
     const vertex1: Vertex = vertices[0]
     const vertex2: Vertex = vertices[1]
@@ -148,7 +148,7 @@ describe('The Graph class', () => {
     ).toBeNull()
   })
 
-  test('printing the edges of a graph to the console', () => {
+  test('printing a string representation of all edges', () => {
     expect(typeof graph.print()).toBe('string')
   })
 })

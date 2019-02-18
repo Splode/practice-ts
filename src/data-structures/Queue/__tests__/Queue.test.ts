@@ -2,25 +2,25 @@ import Queue from '../Queue'
 import generateQueue from '../utils/Queue-mock'
 
 describe('The Queue class', () => {
-  test('create a new instance of Queue', () => {
+  test('instantiating a new Queue', () => {
     expect(new Queue()).toBeInstanceOf(Queue)
   })
 
-  test('determine if queue is empty', () => {
+  test('determining if empty', () => {
     expect(new Queue().isEmpty()).toBeTruthy()
   })
 
-  test('attempting to remove an item from queue should return null', () => {
+  test('returning null when removing an item from empty queue', () => {
     expect(new Queue().dequeue()).toBeNull()
   })
 
-  test('test enqueueing items to a queue', () => {
+  test('enqueueing items', () => {
     const queue: Queue = generateQueue()
     expect(queue.length).toBe(10)
     expect(queue.isEmpty()).toBeFalsy()
   })
 
-  test('dequeue items from the queue', () => {
+  test('dequeuing items', () => {
     const queue: Queue = generateQueue()
     expect(queue.dequeue()).toBe(1)
     expect(queue.length).toBe(9)
@@ -28,7 +28,7 @@ describe('The Queue class', () => {
     expect(queue.length).toBe(8)
   })
 
-  test('get the first item in the queue', () => {
+  test('getting the first item in the queue', () => {
     const queue: Queue = generateQueue()
     expect(queue.peek()).toBe(1)
     queue.dequeue()
