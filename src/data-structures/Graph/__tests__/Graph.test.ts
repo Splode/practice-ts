@@ -67,6 +67,23 @@ describe('The Graph class', () => {
     expect(graph.verticesCount()).toBe(0)
   })
 
+  test('remove the vertex from neighboring vertices on removal', () => {
+    const vertex1 = generateVertex()
+    const vertex2 = generateVertex()
+    const vertex3 = generateVertex()
+
+    graph.addEdge(vertex1, vertex2)
+    graph.addEdge(vertex1, vertex3)
+
+    expect(graph.edgesCount()).toBe(2)
+    expect(vertex1.neighborsCount()).toBe(2)
+
+    graph.removeVertex(vertex3.key)
+
+    // expect(graph.edgesCount()).toBe(1)
+    expect(vertex1.neighborsCount()).toBe(1)
+  })
+
   test('add an edge to a graph', () => {
     const vertex1 = generateVertex()
     const vertex2 = generateVertex()
@@ -95,33 +112,40 @@ describe('The Graph class', () => {
     expect(graph.edgesCount()).toBe(1)
   })
 
+  test('get the edges from a graph', () => {
+    graph.addEdge(generateVertex(), generateVertex())
+    expect(graph.edges[0]).toBeInstanceOf(Edge)
+  })
+
   test('get an edge from a pair of vertex keys', () => {
     const vertex1 = generateVertex()
     const vertex2 = generateVertex()
     graph.addEdge(vertex1, vertex2)
     expect(graph.getEdge(vertex1.key, vertex2.key)).toBeInstanceOf(Edge)
+    expect(graph.getEdge(faker.random.word(), faker.random.word())).toBeNull()
   })
 
-  test('remove the vertex from neighboring vertices on removal', () => {
-    const vertex1 = generateVertex()
-    const vertex2 = generateVertex()
-    const vertex3 = generateVertex()
+  test('remove an edge from a graph by a vertex key pair', () => {
+    const vertices = generateVertexLs(10)
+    const vertex1 = vertices[0]
+    const vertex2 = vertices[1]
+
+    vertices.map(vertex => graph.addVertex(vertex))
 
     graph.addEdge(vertex1, vertex2)
-    graph.addEdge(vertex1, vertex3)
-
+    graph.addEdge(graph.vertices[2], graph.vertices[3])
     expect(graph.edgesCount()).toBe(2)
-    expect(vertex1.neighborsCount()).toBe(2)
-
-    graph.removeVertex(vertex3.key)
-
-    // expect(graph.edgesCount()).toBe(1)
     expect(vertex1.neighborsCount()).toBe(1)
-  })
+    expect(vertex2.neighborsCount()).toBe(1)
 
-  test('get the edges from a graph', () => {
-    graph.addEdge(generateVertex(), generateVertex())
-    expect(graph.edges[0]).toBeInstanceOf(Edge)
+    graph.removeEdge(graph.vertices[0].key, graph.vertices[1].key)
+    expect(graph.edgesCount()).toBe(1)
+    expect(vertex1.neighborsCount()).toBe(0)
+    expect(vertex2.neighborsCount()).toBe(0)
+
+    expect(
+      graph.removeEdge(faker.random.word(), faker.random.word())
+    ).toBeNull()
   })
 
   test('printing the edges of a graph to the console', () => {

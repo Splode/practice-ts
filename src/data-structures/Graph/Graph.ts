@@ -143,6 +143,42 @@ export default class Graph {
   }
 
   /**
+   * Retrieve an edge from a pair of a vertex keys.
+   *
+   * @param {string} vertexKey1 - The first vertex key.
+   * @param {string} vertexKey2 - The second vertex key.
+   * @returns {Edge} The edge.
+   * @memberof Graph
+   */
+  public getEdge(vertexKey1: string, vertexKey2: string): Edge {
+    const index: number = this.__getEdgeIndex(vertexKey1, vertexKey2)
+
+    if (index < 0) {
+      return null
+    }
+
+    return this._edges[index]
+  }
+
+  /**
+   * Get the array index of an edge by a vertex key pair.
+   *
+   * @private
+   * @param {string} vertexKey1 - The first vertex key.
+   * @param {string} vertexKey2 - The second vertex key.
+   * @returns {number} The edge index.
+   * @memberof Graph
+   */
+  private __getEdgeIndex(vertexKey1: string, vertexKey2: string): number {
+    return this._edges.findIndex(edge => {
+      return (
+        edge.vertices[0].key === vertexKey1 &&
+        edge.vertices[1].key === vertexKey2
+      )
+    })
+  }
+
+  /**
    * Adds a connection between two vertices.
    * If either vertex does not exist, it will be created.
    *
@@ -158,13 +194,8 @@ export default class Graph {
     this.addVertex(vertex1)
     this.addVertex(vertex2)
 
-    // add edge if it does not already exist
-    const existingIndex: number = this._edges.findIndex(edge => {
-      return (
-        edge.vertices[0].key === vertex1.key &&
-        edge.vertices[1].key === vertex2.key
-      )
-    })
+    // check for existence of edge before adding
+    const existingIndex: number = this.__getEdgeIndex(vertex1.key, vertex2.key)
     if (existingIndex < 0) {
       this._edges.push(new Edge(vertex1, vertex2))
     }
@@ -173,29 +204,31 @@ export default class Graph {
   }
 
   /**
-   * Retrieve an edge from a pair of a vertex keys.
+   * Removes an edge from a graph by a vertex key pair.
+   * Also removes each vertex association.
    *
    * @param {string} vertexKey1 - The first vertex key.
    * @param {string} vertexKey2 - The second vertex key.
-   * @returns {Edge} The edge.
+   * @returns {Graph} - The graph.
    * @memberof Graph
    */
-  public getEdge(vertexKey1: string, vertexKey2: string): Edge {
-    const index: number = this._edges.findIndex(edge => {
-      return (
-        edge.vertices[0].key === vertexKey1 &&
-        edge.vertices[1].key === vertexKey2
-      )
-    })
+  public removeEdge(vertexKey1: string, vertexKey2: string): Graph {
+    const index: number = this.__getEdgeIndex(vertexKey1, vertexKey2)
 
     if (index < 0) {
       return null
     }
 
-    return this._edges[index]
-  }
+    this._edges.splice(index, 1)
 
-  // TODO: remove edge
+    const vertex1: Vertex = this.getVertex(vertexKey1)
+    const vertex2: Vertex = this.getVertex(vertexKey2)
+
+    vertex1.removeNeighbor(vertexKey2)
+    vertex2.removeNeighbor(vertexKey1)
+
+    return this
+  }
 
   /**
    * Returns the total number of edges in the graph.
