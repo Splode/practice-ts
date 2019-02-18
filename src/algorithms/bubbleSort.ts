@@ -3,8 +3,9 @@
  *
  * @param {number[]} unsorted - The array of unsorted numbers.
  * @returns {number[]} An array of sorted numbers.
+ * @exports
  */
-const bubbleSort = function(unsorted: number[]): number[] {
+export default function bubbleSort(unsorted: number[]): number[] {
   // create a copy of the array param so that the original array is not mutated
   let sorted: number[] = Array.from(unsorted)
   let isSorted: boolean = false
@@ -23,5 +24,3 @@ const bubbleSort = function(unsorted: number[]): number[] {
 
   return sorted
 }
-
-export { bubbleSort }
