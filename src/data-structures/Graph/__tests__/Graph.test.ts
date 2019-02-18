@@ -95,6 +95,13 @@ describe('The Graph class', () => {
     expect(graph.edgesCount()).toBe(1)
   })
 
+  test('get an edge from a pair of vertex keys', () => {
+    const vertex1 = generateVertex()
+    const vertex2 = generateVertex()
+    graph.addEdge(vertex1, vertex2)
+    expect(graph.getEdge(vertex1.key, vertex2.key)).toBeInstanceOf(Edge)
+  })
+
   test('remove the vertex from neighboring vertices on removal', () => {
     const vertex1 = generateVertex()
     const vertex2 = generateVertex()

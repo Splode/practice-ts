@@ -172,7 +172,28 @@ export default class Graph {
     return this
   }
 
-  // TODO: get edge
+  /**
+   * Retrieve an edge from a pair of a vertex keys.
+   *
+   * @param {string} vertexKey1 - The first vertex key.
+   * @param {string} vertexKey2 - The second vertex key.
+   * @returns {Edge} The edge.
+   * @memberof Graph
+   */
+  public getEdge(vertexKey1: string, vertexKey2: string): Edge {
+    const index: number = this._edges.findIndex(edge => {
+      return (
+        edge.vertices[0].key === vertexKey1 &&
+        edge.vertices[1].key === vertexKey2
+      )
+    })
+
+    if (index < 0) {
+      return null
+    }
+
+    return this._edges[index]
+  }
 
   // TODO: remove edge
 
