@@ -43,25 +43,27 @@ describe('The Graph class', () => {
 
   test('get a vertex from a graph by key', () => {
     const vertices = generateVertexLs(10)
+    const key = faker.random.uuid()
 
-    expect(graph.getVertex(13)).toBeNull()
+    expect(graph.getVertex(faker.random.word())).toBeNull()
 
     vertices.map(vertex => graph.addVertex(vertex))
-    graph.addVertex(new Vertex(2, faker.helpers.userCard()))
+    graph.addVertex(new Vertex(key, faker.helpers.userCard()))
 
-    const vertexTwo = graph.getVertex(2)
+    const vertexTwo = graph.getVertex(key)
     expect(vertexTwo).toBeInstanceOf(Vertex)
-    expect(vertexTwo.key).toBe(2)
+    expect(vertexTwo.key).toBe(key)
 
     expect(graph.getVertex(13)).toBeNull()
   })
 
   test('remove a vertex from a graph by key', () => {
-    expect(graph.removeVertex(7)).toBeNull()
+    const key = faker.random.uuid()
+    expect(graph.removeVertex(faker.random.word())).toBeNull()
 
-    graph.addVertex(new Vertex(1, faker.helpers.userCard()))
-    expect(graph.removeVertex(7)).toBeNull()
-    expect(graph.removeVertex(1)).toBeInstanceOf(Vertex)
+    graph.addVertex(new Vertex(key, faker.helpers.userCard()))
+    expect(graph.removeVertex(faker.random.word())).toBeNull()
+    expect(graph.removeVertex(key)).toBeInstanceOf(Vertex)
     expect(graph.verticesCount()).toBe(0)
   })
 

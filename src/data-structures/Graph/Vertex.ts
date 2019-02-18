@@ -7,10 +7,10 @@
 export default class Vertex {
   /**
    *Creates an instance of Vertex.
-   * @param {number} key - A unique integer key.
+   * @param {string} key - A unique integer key.
    * @memberof Vertex
    */
-  constructor(key: number, data: any) {
+  constructor(key: string, data: any) {
     this._key = key
     this._data = data
   }
@@ -19,10 +19,10 @@ export default class Vertex {
    * A unique integer key for each vertex.
    *
    * @private
-   * @type {number}
+   * @type {string}
    * @memberof Vertex
    */
-  private _key: number
+  private _key: string
 
 
   /**
@@ -48,10 +48,10 @@ export default class Vertex {
    * Get a vertex's key.
    *
    * @readonly
-   * @type {number}
+   * @type {string}
    * @memberof Vertex
    */
-  public get key(): number {
+  public get key(): string {
     return this._key
   }
 
@@ -103,22 +103,22 @@ export default class Vertex {
    * Finds and returns a vertex's connected vertex by its key.
    * Returns null if vertex is not a neighbor.
    *
-   * @param {number} key - The key of the vertex to search for.
+   * @param {string} key - The key of the vertex to search for.
    * @returns {Vertex} - The found vertex.
    * @memberof Vertex
    */
-  public getNeighbor(key: number): Vertex {
+  public getNeighbor(key: string): Vertex {
     return this._neighbors.find(vertex => vertex.key === key) || null
   }
 
   /**
    * Remove and return an associated vertex by its key.
    *
-   * @param {number} key - The key of the vertex to remove.
+   * @param {string} key - The key of the vertex to remove.
    * @returns {Vertex} The removed vertex.
    * @memberof Vertex
    */
-  public removeNeighbor(key: number): Vertex {
+  public removeNeighbor(key: string): Vertex {
     const index = this._neighbors.findIndex(vertex => vertex.key === key)
     if (index < 0) {
       throw `Cannot find relationship between vertices with key ${this._key} and ${key}.`

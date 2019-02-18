@@ -9,7 +9,7 @@ describe('The Vertex class', () => {
 
   test('get the key from a vertex', () => {
     const vertex = generateVertex()
-    expect(typeof vertex.key).toBe('number')
+    expect(typeof vertex.key).toBe('string')
   })
 
   test('get the data from a vertex', () => {
@@ -48,20 +48,22 @@ describe('The Vertex class', () => {
 
   test('get a neighbor from a vertex by key', () => {
     const vertex = generateVertex()
-    vertex.addNeighbor(new Vertex(1, faker.helpers.userCard()))
-    expect(vertex.getNeighbor(1)).toBeInstanceOf(Vertex)
-    expect(vertex.getNeighbor(7)).toBeNull()
+    const key = faker.random.uuid()
+    vertex.addNeighbor(new Vertex(key, faker.helpers.userCard()))
+    expect(vertex.getNeighbor(key)).toBeInstanceOf(Vertex)
+    expect(vertex.getNeighbor(faker.random.word())).toBeNull()
   })
 
   test('remove a neighboring vertex by', () => {
     const vertex = generateVertex()
     const vertices = generateVertexLs(10)
+    const key = faker.random.uuid()
 
-    vertex.addNeighbor(new Vertex(1, faker.helpers.userCard()))
+    vertex.addNeighbor(new Vertex(key, faker.helpers.userCard()))
     vertices.map(el => vertex.addNeighbor(el))
 
     expect(vertex.neighborsCount()).toBe(11)
-    expect(vertex.removeNeighbor(1)).toBeInstanceOf(Vertex)
+    expect(vertex.removeNeighbor(key)).toBeInstanceOf(Vertex)
     expect(vertex.neighborsCount()).toBe(10)
   })
 })

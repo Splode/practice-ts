@@ -84,11 +84,11 @@ export default class Graph {
   /**
    * Finds and returns a vertex by its key property.
    *
-   * @param {number} key - The key to search for.
+   * @param {string} key - The key to search for.
    * @returns {Vertex} The found vertex.
    * @memberof Graph
    */
-  public getVertex(key: number): Vertex {
+  public getVertex(key: string): Vertex {
     if (this._vertices.length <= 0) {
       return null
     }
@@ -98,11 +98,11 @@ export default class Graph {
   /**
    * Removes and returns a vertex from a graph.
    *
-   * @param {number} key - The key of the vertex.
+   * @param {string} key - The key of the vertex.
    * @returns {Vertex} The removed vertex.
    * @memberof Graph
    */
-  public removeVertex(key: number): Vertex {
+  public removeVertex(key: string): Vertex {
     const index = this._vertices.findIndex(vertex => vertex.key === key)
     if (this._vertices.length <= 0 || index < 0) {
       return null
