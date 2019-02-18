@@ -120,7 +120,7 @@ export default class Vertex {
     if (index < 0) {
       throw `Cannot find relationship between vertices with key ${this._key} and ${key}.`
     }
-    return this._neighbors.splice(index, 0)[0]
+    return this._neighbors.splice(index, 1)[0]
   }
 
   /**
@@ -129,7 +129,7 @@ export default class Vertex {
    * @returns {number} The number of connected vertices.
    * @memberof Vertex
    */
-  public neighborsLength(): number {
+  public neighborsCount(): number {
     return this._neighbors.length
   }
 }
