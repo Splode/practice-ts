@@ -149,6 +149,6 @@ describe('The Graph class', () => {
   })
 
   test('printing the edges of a graph to the console', () => {
-    expect(graph.print()).toBeUndefined()
+    expect(typeof graph.print()).toBe('string')
   })
 })

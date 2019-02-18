@@ -245,9 +245,11 @@ export default class Graph {
    *
    * @memberof Graph
    */
-  public print(): void {
+  public print(): string {
+    const edges: string[] = []
     this._edges.map(edge => {
-      console.log(`${edge.vertices[0].key} --- ${edge.vertices[1].key}`)
+      edges.push(`${edge.vertices[0].key}-${edge.vertices[1].key}`)
     })
+    return edges.join('\n')
   }
 }
