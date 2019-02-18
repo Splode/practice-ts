@@ -1,21 +1,8 @@
-import { PriorityQueue } from './priority-queue'
-
-/**
- * Generate a populated instance of the Priority Queue class.
- *
- * @returns {PriorityQueue} A populated Priority Queue.
- */
-function generatePriorityQueue(): PriorityQueue {
-  const lowItems: number[] = [1, 2, 3, 4, 5]
-  const highItems: number[] = [6, 7, 8, 9,10]
-  const priorityQueue = new PriorityQueue()
-  lowItems.map(item => priorityQueue.enqueue(item))
-  highItems.map(item => priorityQueue.enqueue(item, true))
-  return priorityQueue
-}
+import PriorityQueue from '../PriorityQueue'
+import generatePriorityQueue from '../utils/PriorityQueue-mock'
 
 test('create a new instance of PriorityQueue', () => {
-  const priorityQueue = new PriorityQueue
+  const priorityQueue = new PriorityQueue()
   expect(priorityQueue).toBeInstanceOf(PriorityQueue)
   expect(priorityQueue.isEmpty()).toBeTruthy()
 })

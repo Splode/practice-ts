@@ -1,16 +1,5 @@
-import { Stack } from './stack'
-
-/**
- * Generate a populated instance of the Stack class.
- *
- * @returns {Stack} A populated Stack.
- */
-function generateStack(): Stack {
-  const values: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  const stack = new Stack()
-  values.map(val => stack.push(val))
-  return stack
-}
+import Stack from '../Stack'
+import generateStack from '../utils/Stack-mock'
 
 test('create an instance of the Stack class', () => {
   expect(new Stack()).toBeInstanceOf(Stack)

@@ -3,8 +3,9 @@
  *
  * @param {any[]} arr - The array to be reversed.
  * @returns {any[]} The reversed array.
+ * @exports
  */
-function reverse(arr: any[]): any[] {
+export default function reverse(arr: any[]): any[] {
   let start: number = 0
   let end: number = arr.length - 1
 
@@ -17,5 +18,3 @@ function reverse(arr: any[]): any[] {
   }
   return arr
 }
-
-export { reverse }

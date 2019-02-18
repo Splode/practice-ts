@@ -2,8 +2,9 @@
  * Creates a new stack.
  *
  * @class Stack
+ * @exports
  */
-class Stack {
+export default class Stack {
   private _items: number[] = []
 
   /**
@@ -67,8 +68,4 @@ class Stack {
       console.log(`[${i}]:  ${this._items[i]}`)
     }
   }
-}
-
-export {
-  Stack
 }

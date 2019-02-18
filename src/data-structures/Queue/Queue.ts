@@ -3,7 +3,7 @@
  *
  * @class Queue
  */
-class Queue {
+export default class Queue {
   private _items: number[] = []
 
   /**
@@ -69,11 +69,7 @@ class Queue {
    */
   public print(): void {
     for (let i = 0; i < this.length; i++) {
-      console.log(`[${i}]: ${this._items[(this.length - 1) - i]}`)
+      console.log(`[${i}]: ${this._items[this.length - 1 - i]}`)
     }
   }
-}
-
-export {
-  Queue
 }

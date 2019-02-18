@@ -1,16 +1,5 @@
-import { ListNode, LinkedList } from './singly-linked-list'
-
-/**
- * Populate initial linked list.
- *
- * @returns {LinkedList} A linked list with 10 nodes.
- */
-function generateLinkedList(): LinkedList {
-  const values: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  const linkedList = new LinkedList()
-  values.map(el => linkedList.push(new ListNode(el)))
-  return linkedList
-}
+import { ListNode, LinkedList } from '../SinglyLinkedList'
+import generateLinkedList from '../utils/SinglyLinkedList-mock'
 
 test('creates a new node', () => {
   const node = new ListNode(1)

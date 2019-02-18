@@ -1,16 +1,5 @@
-import { Queue } from './queue'
-
-/**
- * Generate a populated instance of the Queue class.
- *
- * @returns {Queue} A populated Queue.
- */
-function generateQueue(): Queue {
-  const values: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  const queue = new Queue()
-  values.map(val => queue.enqueue(val))
-  return queue
-}
+import Queue from '../Queue'
+import generateQueue from '../utils/Queue-mock'
 
 test('create a new instance of Queue', () => {
   expect(new Queue()).toBeInstanceOf(Queue)

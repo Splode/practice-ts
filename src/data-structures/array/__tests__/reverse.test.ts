@@ -1,4 +1,4 @@
-import { reverse } from './array'
+import reverse from '../reverse'
 
 test('reverse an array of integers', () => {
   let array: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]

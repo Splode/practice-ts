@@ -1,4 +1,4 @@
-import { Queue } from './queue'
+import Queue from '../Queue/Queue'
 
 /**
  * Creates a new Priority Queue.
@@ -6,8 +6,9 @@ import { Queue } from './queue'
  * low priority items and to track high priority items.
  *
  * @class PriorityQueue
+ * @exports
  */
-class PriorityQueue {
+export default class PriorityQueue {
   private _lowPriorityQueue: Queue = new Queue()
   private _highPriorityQueue: Queue = new Queue()
 
@@ -92,5 +93,3 @@ class PriorityQueue {
     this._lowPriorityQueue.print()
   }
 }
-
-export { PriorityQueue }
