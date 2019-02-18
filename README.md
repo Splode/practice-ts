@@ -33,12 +33,12 @@
   - [x] Peek
   - [x] Length
   - [x] isEmpty
-- [ ] Graphs
+- [x] Graphs
   - [x] Add Vertex
   - [x] Get Vertex, Vertices
   - [x] Remove Vertex
   - [x] Add Edge
-  - [ ] Remove Edge
+  - [x] Remove Edge
   - [x] Count vertices, edges
 - [ ] Trees
 - [ ] Binary Trees
