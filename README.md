@@ -34,8 +34,15 @@
   - [x] Length
   - [x] isEmpty
 - [ ] Graphs
+  - [x] Add Vertex
+  - [x] Get Vertex, Vertices
+  - [x] Remove Vertex
+  - [x] Add Edge
+  - [ ] Remove Edge
+  - [x] Count vertices, edges
 - [ ] Trees
 - [ ] Binary Trees
+- [ ] Hash Tables
 
 ## Algorithms
 
