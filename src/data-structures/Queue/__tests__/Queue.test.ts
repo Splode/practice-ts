@@ -34,4 +34,9 @@ describe('The Queue class', () => {
     queue.dequeue()
     expect(queue.peek()).toBe(2)
   })
+
+  test('printing the queue to a string', () => {
+    const queue: Queue = generateQueue()
+    expect(typeof queue.print()).toBe('string')
+  })
 })

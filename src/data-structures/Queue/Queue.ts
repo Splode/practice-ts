@@ -70,13 +70,16 @@ export default class Queue {
   }
 
   /**
-   * Print the queue to the console in ascending order.
+   * Returns a string containing all of the items in the queue.
    *
+   * @returns {string} A string representation of the queue.
    * @memberof Queue
    */
-  public print(): void {
+  public print(): string {
+    const items: string[] = []
     for (let i = 0; i < this.length; i++) {
-      console.log(`[${i}]: ${this._items[this.length - 1 - i]}`)
+      items.push(`${this._items[this.length - 1 - i]}`)
     }
+    return items.join('\n')
   }
 }
