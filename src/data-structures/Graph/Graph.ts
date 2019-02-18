@@ -185,4 +185,15 @@ export default class Graph {
   public edgesCount(): number {
     return this._edges.length
   }
+
+  /**
+   * Prints the edges of a graph to the console.
+   *
+   * @memberof Graph
+   */
+  public print(): void {
+    this._edges.map(edge => {
+      console.log(`${edge.vertices[0].key} --- ${edge.vertices[1].key}`)
+    })
+  }
 }

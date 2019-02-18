@@ -114,4 +114,8 @@ describe('The Graph class', () => {
     graph.addEdge(generateVertex(), generateVertex())
     expect(graph.edges[0]).toBeInstanceOf(Edge)
   })
+
+  test('printing the edges of a graph to the console', () => {
+    expect(graph.print()).toBeUndefined()
+  })
 })
