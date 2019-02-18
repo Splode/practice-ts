@@ -4,6 +4,7 @@ import Vertex from './Vertex'
 /**
  * Creates a new Graph.
  *
+ * @export
  * @class Graph
  */
 export default class Graph {
@@ -13,21 +14,60 @@ export default class Graph {
    * @memberof Graph
    */
   constructor(directed: boolean = false) {
-    this._directed = directed
+    this._isDirected = directed
   }
 
-  private _directed: boolean
+  /**
+   * Determines whether or not the graph is directed.
+   * Set to false (undirected) by default.
+   *
+   * @private
+   * @type {boolean}
+   * @memberof Graph
+   */
+  private _isDirected: boolean
+
+  /**
+   * A list of vertices contained within the graph.
+   *
+   * @private
+   * @type {Vertex[]}
+   * @memberof Graph
+   */
   private _vertices: Vertex[] = []
-  private _edges: Edge[]
+
+  /**
+   * A list of edges contained within the graph.
+   *
+   * @private
+   * @type {Edge[]}
+   * @memberof Graph
+   */
+  private _edges: Edge[] = []
+
+  /**
+   * Returns true if the graph is directed.
+   *
+   * @readonly
+   * @type {boolean}
+   * @memberof Graph
+   */
+  public get isDirected(): boolean {
+    return this._isDirected
+  }
 
   /**
    * Adds a vertex to the graph.
+   * Avoids adding a duplicate vertex.
    *
    * @param {Vertex} vertex - A vertex to add.
    * @memberof Graph
    */
-  public addVertex(vertex: Vertex): void {
-    this._vertices.push(vertex)
+  public addVertex(vertex: Vertex): Graph {
+    if (!this.getVertex(vertex.key)) {
+      this._vertices.push(vertex)
+    }
+    return this
   }
 
   /**
@@ -38,7 +78,36 @@ export default class Graph {
    * @memberof Graph
    */
   public getVertex(key: number): Vertex {
-    return this._vertices.find(vertex => vertex.key === key)
+    if (this._vertices.length <= 0) {
+      return null
+    }
+    return this._vertices.find(vertex => vertex.key === key) || null
+  }
+
+  /**
+   * Removes and returns a vertex from a graph.
+   *
+   * @param {number} key - The key of the vertex.
+   * @returns {Vertex} The removed vertex.
+   * @memberof Graph
+   */
+  public removeVertex(key: number): Vertex {
+    const index = this._vertices.findIndex(vertex => vertex.key === key)
+    if (this._vertices.length <= 0 || index < 0) {
+      return null
+    }
+    // TODO: check for existence of vertex in edge
+    return this._vertices.splice(index, 1)[0]
+  }
+
+  /**
+   * Returns the total number of vertices in the graph.
+   *
+   * @returns {number} The number of vertices.
+   * @memberof Graph
+   */
+  public verticesCount(): number {
+    return this._vertices.length
   }
 
   /**
@@ -53,27 +122,22 @@ export default class Graph {
   public addEdge(vertex1: Vertex, vertex2: Vertex): Graph {
     vertex1.addNeighbor(vertex2)
     vertex2.addNeighbor(vertex1)
+    this.addVertex(vertex1).addVertex(vertex2)
     this._edges.push(new Edge(vertex1, vertex2))
     return this
   }
 
-  /**
-   * Returns true if the graph is directed.
-   *
-   * @returns {boolean} True if directed, false if undirected.
-   * @memberof Graph
-   */
-  public isDirected(): boolean {
-    return this._directed
-  }
+  // TODO: get edge
+
+  // TODO: remove edge
 
   /**
-   * Returns the total number of vertices in the graph.
+   * Returns the total number of edges in the graph.
    *
-   * @returns {number} The number of vertices.
+   * @returns {number} The number of edges.
    * @memberof Graph
    */
-  public size(): number {
-    return this._vertices.length
+  public edgesCount(): number {
+    return this._edges.length
   }
 }

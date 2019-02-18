@@ -43,6 +43,7 @@ describe('The Vertex class', () => {
     const vertex = generateVertex()
     vertex.addNeighbor(new Vertex(1, faker.random.objectElement()))
     expect(vertex.getNeighbor(1)).toBeInstanceOf(Vertex)
+    expect(vertex.getNeighbor(7)).toBeNull()
   })
 
   test('remove a neighboring vertex by', () => {
