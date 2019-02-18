@@ -113,9 +113,13 @@ export default class Graph {
 
     // remove this vertex from the neighbors list of each associated vertex
     if (currentVertex.neighborsCount() > 0) {
-      currentVertex.neighbors.map(vertex =>
+      currentVertex.neighbors.map(vertex => {
         vertex.removeNeighbor(currentVertex.key)
-      )
+
+        // remove edges between current node and its neighbors
+        this.removeEdge(currentVertex.key, vertex.key)
+        this.removeEdge(vertex.key, currentVertex.key)
+      })
     }
 
     return this._vertices.splice(index, 1)[0]

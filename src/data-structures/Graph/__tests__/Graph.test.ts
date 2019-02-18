@@ -80,7 +80,7 @@ describe('The Graph class', () => {
 
     graph.removeVertex(vertex3.key)
 
-    // expect(graph.edgesCount()).toBe(1)
+    expect(graph.edgesCount()).toBe(1)
     expect(vertex1.neighborsCount()).toBe(1)
   })
 
