@@ -5,6 +5,13 @@
  * @exports
  */
 export default class Stack {
+  /**
+   * The collection of numeric items in the stack.
+   *
+   * @private
+   * @type {number[]}
+   * @memberof Stack
+   */
   private _items: number[] = []
 
   /**

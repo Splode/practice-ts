@@ -7,8 +7,34 @@ import ListNode from './ListNode'
  * @exports
  */
 export default class SinglyLinkedList {
+
+  /**
+   * The number of items in the linked list.
+   *
+   * @private
+   * @type {number}
+   * @memberof SinglyLinkedList
+   */
   private _length: number = 0
+
+  
+  /**
+   * The first list node in the linked list.
+   *
+   * @private
+   * @type {ListNode}
+   * @memberof SinglyLinkedList
+   */
   private _head: ListNode = null
+
+
+  /**
+   * The last list node in the linked list.
+   *
+   * @private
+   * @type {ListNode}
+   * @memberof SinglyLinkedList
+   */
   private _tail: ListNode = null
 
   /**

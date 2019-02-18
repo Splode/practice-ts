@@ -9,7 +9,22 @@ import Queue from '../Queue/Queue'
  * @exports
  */
 export default class PriorityQueue {
+  /**
+   * The default, low-priority internal queue.
+   *
+   * @private
+   * @type {Queue}
+   * @memberof PriorityQueue
+   */
   private _lowPriorityQueue: Queue = new Queue()
+
+  /**
+   * The high-priority internal queue.
+   *
+   * @private
+   * @type {Queue}
+   * @memberof PriorityQueue
+   */
   private _highPriorityQueue: Queue = new Queue()
 
   /**

@@ -4,6 +4,13 @@
  * @class Queue
  */
 export default class Queue {
+  /**
+   * A collection of numeric items in the queue.
+   *
+   * @private
+   * @type {number[]}
+   * @memberof Queue
+   */
   private _items: number[] = []
 
   /**
