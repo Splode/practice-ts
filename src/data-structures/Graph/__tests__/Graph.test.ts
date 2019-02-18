@@ -3,6 +3,7 @@ import Edge from '../Edge'
 import Graph from '../Graph'
 import Vertex from '../Vertex'
 import { generateVertexLs, generateVertex } from '../utils/Vertex-mock'
+import generateGraph from '../utils/Graph-mock';
 
 describe('The Graph class', () => {
   let graph: Graph
@@ -149,6 +150,9 @@ describe('The Graph class', () => {
   })
 
   test('printing a string representation of all edges', () => {
-    expect(typeof graph.print()).toBe('string')
+    const graph: Graph = generateGraph()
+    const output: string = graph.print()
+    expect(typeof output).toBe('string')
+    expect(output.length).toBeGreaterThan(0)
   })
 })
