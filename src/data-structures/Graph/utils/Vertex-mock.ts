@@ -7,7 +7,7 @@ import Vertex from '../Vertex'
  * @returns {Vertex} A randomly generated vertex.
  */
 const generateVertex = function(): Vertex {
-  return new Vertex(faker.random.number(), faker.random.objectElement())
+  return new Vertex(faker.random.number(), faker.helpers.userCard())
 }
 
 /**

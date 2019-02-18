@@ -1,5 +1,6 @@
 import Graph from '../Graph'
 import { generateVertexLs } from './Vertex-mock'
+import * as faker from 'faker'
 
 /**
  * Generates a graph pre-populated with random vertices for testing.

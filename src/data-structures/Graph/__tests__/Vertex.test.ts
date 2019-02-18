@@ -48,7 +48,7 @@ describe('The Vertex class', () => {
 
   test('get a neighbor from a vertex by key', () => {
     const vertex = generateVertex()
-    vertex.addNeighbor(new Vertex(1, faker.random.objectElement()))
+    vertex.addNeighbor(new Vertex(1, faker.helpers.userCard()))
     expect(vertex.getNeighbor(1)).toBeInstanceOf(Vertex)
     expect(vertex.getNeighbor(7)).toBeNull()
   })
@@ -57,7 +57,7 @@ describe('The Vertex class', () => {
     const vertex = generateVertex()
     const vertices = generateVertexLs(10)
 
-    vertex.addNeighbor(new Vertex(1, faker.random.objectElement()))
+    vertex.addNeighbor(new Vertex(1, faker.helpers.userCard()))
     vertices.map(el => vertex.addNeighbor(el))
 
     expect(vertex.neighborsCount()).toBe(11)

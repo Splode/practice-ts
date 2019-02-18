@@ -47,7 +47,7 @@ describe('The Graph class', () => {
     expect(graph.getVertex(13)).toBeNull()
 
     vertices.map(vertex => graph.addVertex(vertex))
-    graph.addVertex(new Vertex(2, faker.random.objectElement()))
+    graph.addVertex(new Vertex(2, faker.helpers.userCard()))
 
     const vertexTwo = graph.getVertex(2)
     expect(vertexTwo).toBeInstanceOf(Vertex)
@@ -59,7 +59,7 @@ describe('The Graph class', () => {
   test('remove a vertex from a graph by key', () => {
     expect(graph.removeVertex(7)).toBeNull()
 
-    graph.addVertex(new Vertex(1, faker.random.objectElement()))
+    graph.addVertex(new Vertex(1, faker.helpers.userCard()))
     expect(graph.removeVertex(7)).toBeNull()
     expect(graph.removeVertex(1)).toBeInstanceOf(Vertex)
     expect(graph.verticesCount()).toBe(0)
