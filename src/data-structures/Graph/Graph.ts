@@ -109,8 +109,6 @@ export default class Graph {
     }
     const currentVertex: Vertex = this._vertices[index]
 
-    // TODO: check for existence of vertex in edge
-
     // remove this vertex from the neighbors list of each associated vertex
     if (currentVertex.neighborsCount() > 0) {
       currentVertex.neighbors.map(vertex => {
