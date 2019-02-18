@@ -248,7 +248,7 @@ export default class Graph {
   public print(): string {
     const edges: string[] = []
     this._edges.map(edge => {
-      edges.push(`${edge.vertices[0].key}-${edge.vertices[1].key}`)
+      edges.push(`${edge.vertices[0].key}, ${edge.vertices[1].key}`)
     })
     return edges.join('\n')
   }
