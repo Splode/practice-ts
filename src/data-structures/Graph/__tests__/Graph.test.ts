@@ -1,4 +1,5 @@
 import * as faker from 'faker'
+import Edge from '../Edge'
 import Graph from '../Graph'
 import Vertex from '../Vertex'
 import { generateVertexLs, generateVertex } from '../utils/Vertex-mock'
@@ -25,6 +26,12 @@ describe('The Graph class', () => {
     const vertices = generateVertexLs(10)
     vertices.map(vertex => graph.addVertex(vertex))
     expect(graph.verticesCount()).toBe(10)
+  })
+
+  test('get the vertices from a graph', () => {
+    const vertices = generateVertexLs(10)
+    vertices.map(vertex => graph.addVertex(vertex))
+    expect(graph.vertices[3]).toBeInstanceOf(Vertex)
   })
 
   test('avoid adding duplicate vertices', () => {
@@ -74,5 +81,10 @@ describe('The Graph class', () => {
     expect(graph.edgesCount()).toBe(2)
     expect(vertex1.neighborsCount()).toBe(2)
     expect(vertex3.neighborsCount()).toBe(1)
+  })
+
+  test('get the edges from a graph', () => {
+    graph.addEdge(generateVertex(), generateVertex())
+    expect(graph.edges[0]).toBeInstanceOf(Edge)
   })
 })

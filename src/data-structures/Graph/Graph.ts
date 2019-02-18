@@ -57,6 +57,17 @@ export default class Graph {
   }
 
   /**
+   * Returns a list of the vertices in the graph.
+   *
+   * @readonly
+   * @type {Vertex[]}
+   * @memberof Graph
+   */
+  public get vertices(): Vertex[] {
+    return this._vertices
+  }
+
+  /**
    * Adds a vertex to the graph.
    * Avoids adding a duplicate vertex.
    *
@@ -108,6 +119,17 @@ export default class Graph {
    */
   public verticesCount(): number {
     return this._vertices.length
+  }
+
+  /**
+   * Returns a list of the edges in the graph.
+   *
+   * @readonly
+   * @type {Edge[]}
+   * @memberof Graph
+   */
+  public get edges(): Edge[] {
+    return this._edges
   }
 
   /**
