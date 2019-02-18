@@ -3,8 +3,8 @@ import ListNode from './ListNode'
 /**
  * A singly-linked list.
  *
+ * @export
  * @class LinkedList
- * @exports
  */
 export default class SinglyLinkedList {
 

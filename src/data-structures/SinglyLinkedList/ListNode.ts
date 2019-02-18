@@ -2,8 +2,8 @@
  * A node in a singly-linked list.
  * Each node has a number as its data and a pointer to the next node in the list.
  *
+ * @export
  * @class ListNode
- * @exports
  */
 export default class ListNode {
   /**

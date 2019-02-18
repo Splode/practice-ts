@@ -3,6 +3,7 @@ import PriorityQueue from '../PriorityQueue'
 /**
  * Generate a populated instance of the Priority Queue class.
  *
+ * @export
  * @returns {PriorityQueue} A populated Priority Queue.
  */
 export default function generatePriorityQueue(): PriorityQueue {
