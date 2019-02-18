@@ -66,13 +66,16 @@ export default class Stack {
   }
 
   /**
-   * Prints the stack to the console.
+   * Returns a string containing all of the items in the stack..
    *
+   * @returns {string} The stack in string form.
    * @memberof Stack
    */
-  public print(): void {
+  public print(): string {
+    const items: string[] = []
     for (let i = 0; i < this.length; i++) {
-      console.log(`[${i}]:  ${this._items[i]}`)
+      items.push(`${this._items[i]}`)
     }
+    return items.join('\n')
   }
 }

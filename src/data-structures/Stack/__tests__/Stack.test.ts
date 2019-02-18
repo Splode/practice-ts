@@ -30,4 +30,9 @@ describe('The Stack class', () => {
     expect(generateStack().isEmpty()).toBeFalsy()
     expect(new Stack()).toBeTruthy()
   })
+
+  test('printing the stack items to a string', () => {
+    const stack: Stack = generateStack()
+    expect(typeof stack.print()).toBe('string')
+  })
 })
