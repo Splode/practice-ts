@@ -83,6 +83,33 @@ describe('The Graph class', () => {
     expect(vertex3.neighborsCount()).toBe(1)
   })
 
+  test('do not add duplicate edges to a graph', () => {
+    const vertex1 = generateVertex()
+    const vertex2 = generateVertex()
+
+    graph.addEdge(vertex1, vertex2)
+    graph.addEdge(vertex1, vertex2)
+
+    expect(graph.edgesCount()).toBe(1)
+  })
+
+  test('remove the vertex from neighboring vertices on removal', () => {
+    const vertex1 = generateVertex()
+    const vertex2 = generateVertex()
+    const vertex3 = generateVertex()
+
+    graph.addEdge(vertex1, vertex2)
+    graph.addEdge(vertex1, vertex3)
+
+    expect(graph.edgesCount()).toBe(2)
+    expect(vertex1.neighborsCount()).toBe(2)
+
+    graph.removeVertex(vertex3.key)
+
+    // expect(graph.edgesCount()).toBe(1)
+    expect(vertex1.neighborsCount()).toBe(1)
+  })
+
   test('get the edges from a graph', () => {
     graph.addEdge(generateVertex(), generateVertex())
     expect(graph.edges[0]).toBeInstanceOf(Edge)

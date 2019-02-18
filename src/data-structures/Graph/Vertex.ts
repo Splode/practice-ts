@@ -88,11 +88,14 @@ export default class Vertex {
   /**
    * Adds a vertex to the list of vertices associated with a vertex.
    *
-   * @param {Vertex} vertex - A vertex instance.
+   * @param {Vertex} vertex - A vertex.
+   * @returns {Vertex} The vertex.
    * @memberof Vertex
    */
   public addNeighbor(vertex: Vertex): Vertex {
-    this._neighbors.push(vertex)
+    if (!this.getNeighbor(vertex.key)) {
+      this._neighbors.push(vertex)
+    }
     return this
   }
 

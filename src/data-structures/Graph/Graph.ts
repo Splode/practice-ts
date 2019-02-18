@@ -107,7 +107,17 @@ export default class Graph {
     if (this._vertices.length <= 0 || index < 0) {
       return null
     }
+    const currentVertex = this._vertices[index]
+
     // TODO: check for existence of vertex in edge
+
+    // remove this vertex from the neighbors list of each associated vertex
+    if (currentVertex.neighborsCount() > 0) {
+      currentVertex.neighbors.map(vertex =>
+        vertex.removeNeighbor(currentVertex.key)
+      )
+    }
+
     return this._vertices.splice(index, 1)[0]
   }
 
@@ -144,8 +154,21 @@ export default class Graph {
   public addEdge(vertex1: Vertex, vertex2: Vertex): Graph {
     vertex1.addNeighbor(vertex2)
     vertex2.addNeighbor(vertex1)
-    this.addVertex(vertex1).addVertex(vertex2)
-    this._edges.push(new Edge(vertex1, vertex2))
+
+    this.addVertex(vertex1)
+    this.addVertex(vertex2)
+
+    // add edge if it does not already exist
+    const existingIndex: number = this._edges.findIndex(edge => {
+      return (
+        edge.vertices[0].key === vertex1.key &&
+        edge.vertices[1].key === vertex2.key
+      )
+    })
+    if (existingIndex < 0) {
+      this._edges.push(new Edge(vertex1, vertex2))
+    }
+
     return this
   }
 

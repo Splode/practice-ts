@@ -31,6 +31,13 @@ describe('The Vertex class', () => {
     expect(vertex.neighborsCount()).toBe(1)
   })
 
+  test('do not add duplicate vertices as neighbors', () => {
+    const vertex = generateVertex()
+    const neighbor = generateVertex()
+    vertex.addNeighbor(neighbor).addNeighbor(neighbor)
+    expect(vertex.neighborsCount()).toBe(1)
+  })
+
   test('get neighbors from a vertex', () => {
     const vertex = generateVertex()
     const vertices = generateVertexLs(10)
