@@ -228,17 +228,18 @@ export default class SinglyLinkedList {
   }
 
   /**
-   * Prints each node's data in the linked list.
+   * Returns a string containing the list data.
    *
+   * @returns {string} The linked list data.
    * @memberof LinkedList
    */
-  public print(): void {
+  public print(): string {
+    let output: string[] = []
     let current: ListNode = this.head
-    let values: number[] = []
     while (current) {
-      values.push(current.data)
+      output.push(current.data.toString())
       current = current.next
     }
-    console.log(values.join(' => '))
+    return output.join('\n')
   }
 }

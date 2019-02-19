@@ -88,4 +88,11 @@ describe('The SinglyLinkedList class', () => {
     expect(linkedList.tail.data).toBe(9)
     expect(linkedList.length).toBe(8)
   })
+
+  test('printing the list items to a string', () => {
+    const linkedList: SinglyLinkedList = generateLinkedList()
+    const output = linkedList.print()
+    expect(typeof output).toBe('string')
+    expect(output.length).toBeGreaterThan(0)
+  })
 })
